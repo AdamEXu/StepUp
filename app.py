@@ -137,6 +137,22 @@ def get_chance():
     "message": (a personalized message regarding the applicant's chance),
     "liked": (a breakdown of things you liked in categories like GPA, extracurriculars, and essay) (include 3),
     "disliked": (a breakdown of things you disliked in categories like SAT score, recommendation letters, and transcript) (include 3).
+
+    Example one:
+    {{
+      "chance": 0.95,
+      "message": "You have a 95% chance of getting into Harvard due to your high GPA and extracurricular activities. Your essay was well-written and your transcript is impressive.",
+      "liked": {{
+        "GPA": "Stanford liked your high GPA of 4.0",
+        "Extracurriculars": "Your leadership in the debate club was impressive",
+        "Essay": "The essay was well-written and showed your passion for computer science"
+      }},
+      "disliked": {{
+        "SAT score": "Your SAT score was slightly below the average for admitted students",
+        "Recommendation letters": "The recommendation letters lacked detail",
+        "Transcript": "Some grades in your transcript were lower than expected"
+      }},
+    }}
     '''
 
     # Create the content for OpenAI

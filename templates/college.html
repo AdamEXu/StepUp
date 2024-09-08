@@ -127,13 +127,13 @@
   <form id="chance-form">
     <h2 style="font-size: 30px; font-weight: 500">
       Your chance of getting accepted:
-      <a style="color: #50b500"
+      <a id="acceptchance" style="color: #50b500"
         >Choose an admissions officer strictness below.</a
       >
     </h2>
-    <h2 style="font-size: 30px; font-weight: 500">
+    <h2 id="acceptchancestandard" style="font-size: 30px; font-weight: 500">
       Standard chance of getting accepted:
-      <a style="color: #fdc700">10%</a>
+      <a style="color: #fdc700">{{college.acceptance_rate}}%</a>
     </h2>
     <h3 style="font-size: 30px">
       Choose an admissions officer strictness below.
@@ -188,6 +188,7 @@
         .then((response) => response.json())
         .then((data) => {
           // Handle the response data and update the widget
+          document.getElementById("loading").style.display = "none"; // Hide loading message
           document.getElementById("widget").innerHTML = `
           <div class="container">
             <!-- What They'll Like Section -->
@@ -197,7 +198,7 @@
                 .map(
                   ([key, value]) => `
                 <div class="item" onclick="toggleItem('${key}')">
-                  <p>${key}</p>
+                  <p>${key}</p>c
                   <span class="toggle-button">+</span>
                 </div>
                 <div id="${key}" class="collapse-content">
@@ -227,6 +228,8 @@
             </div>
           </div>
           `;
+          document.getElementById("acceptchance").innerHTML =
+            data.chance * 100 + "%";
         })
         .catch((error) => {
           console.error("Error:", error);
