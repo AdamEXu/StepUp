@@ -113,8 +113,8 @@
     "logo_image_url": "https://clipart-library.com/newhp/kissclipart-university-of-california-berkeley-clipart-school-edbcdfe52d136ff2.png",
     "image_url": "https://www.sasaki.com/wp-content/uploads/2022/03/DD_SASAKI_BERKELEY_V2-Evans_2021_07_30-Update-1800x1013.jpg",
     "key_application": "Selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations; Not Considered: Interviews, Legacy, Demonstrated Interest",
-    "acceptance_rate": 17.1,
-    "average_gpa": 4.3
+    "acceptance_rate": 11.1,
+    "average_gpa": 4.08
   },
   "cornell": {
     "id": "cornell",
@@ -126,8 +126,8 @@
     "logo_image_url": "https://www.clipartmax.com/png/middle/97-975548_cornell-university-logo-universidad-de-cornell-logo.png",
     "image_url": "https://images.squarespace-cdn.com/content/v1/587d84da414fb5c9a57c9b61/1680634195968-M8EECEFHZ4FHFPS6W02O/interior-view-uris-library-cornell-university-new-york-jul-224041153.jpg",
     "key_application": "Selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Demonstrated Interest; Optional: Interview",
-    "acceptance_rate": 10.9,
-    "average_gpa": 4.3
+    "acceptance_rate": 8.7,
+    "average_gpa": 4.07
   },
   "johnhopkins": {
     "id": "johnhopkins",
@@ -139,8 +139,8 @@
     "logo_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwL8GAMGRiz5Q8cAPPhGcy4xU7fNjiVyQy4A&s",
     "image_url": "https://images.squarespace-cdn.com/content/v1/546119bae4b085cc73a9bff6/1470950327059-TJZDKFB1A1HDYPNYNN0K/image-asset.jpeg",
     "key_application": "Selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Research Experience; Optional: Interview",
-    "acceptance_rate": 9.9,
-    "average_gpa": 4.3
+    "acceptance_rate": 7.8,
+    "average_gpa": 4.11
   },
   "oxford": {
     "id": "oxford",
@@ -152,7 +152,7 @@
     "logo_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJDtdIpCW81yyjukm5uJLP8F7IoMc29jtnLQ&s",
     "image_url": "https://cdn.britannica.com/03/117103-050-F4C2FC83/view-University-of-Oxford-England-Oxfordshire.jpg",
     "key_application": "Highly selective: GCSEs, A-levels or IB, Personal Statement, Written Tests (depending on the subject), Interviews; Optional: Extracurriculars (not prioritized)",
-    "acceptance_rate": 17.5,
-    "average_gpa": 4.3
+    "acceptance_rate": 17.0,
+    "average_gpa": 3.9
   }
 }
