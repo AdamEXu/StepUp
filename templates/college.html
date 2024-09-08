@@ -53,50 +53,75 @@
     background-color: #0056b3;
   }
 
+  /* New styles for improved pros and cons UI */
   .container {
     display: flex;
     gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .card {
     background-color: white;
-    border: 1px solid #ccc;
     border-radius: 10px;
-    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    overflow: hidden;
+  }
+
+  .card-header {
     padding: 15px;
-  }
-
-  h2 {
     font-size: 18px;
-    color: green;
+    font-weight: bold;
+    color: white;
+    text-align: center;
   }
 
-  .card:nth-child(2) h2 {
-    color: red;
+  .likes .card-header {
+    background-color: #4caf50;
+  }
+
+  .dislikes .card-header {
+    background-color: #f44336;
   }
 
   .item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e0e0e0;
     cursor: pointer;
+    transition: background-color 0.3s;
   }
 
   .item:last-child {
     border-bottom: none;
   }
 
+  .item:hover {
+    background-color: #f5f5f5;
+  }
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+
   .toggle-button {
     font-size: 20px;
-    color: gray;
+    color: #757575;
+    transition: transform 0.3s;
+  }
+
+  .item.active .toggle-button {
+    transform: rotate(45deg);
   }
 
   .collapse-content {
     display: none;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #ccc;
+    padding: 15px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    line-height: 1.5;
   }
 </style>
 
@@ -192,17 +217,19 @@
           document.getElementById("widget").innerHTML = `
           <div class="container">
             <!-- What They'll Like Section -->
-            <div class="card">
-              <h2>What they'll like</h2>
+            <div class="card likes">
+              <div class="card-header">What They'll Like</div>
               ${Object.entries(data.liked)
                 .map(
                   ([key, value]) => `
-                <div class="item" onclick="toggleItem('${key}')">
-                  <p>${key}</p>c
-                  <span class="toggle-button">+</span>
-                </div>
-                <div id="${key}" class="collapse-content">
-                  <p>${value}</p>
+                <div class="item" onclick="toggleItem(this)">
+                  <div class="item-header">
+                    <span>${key}</span>
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="collapse-content">
+                    <p>${value}</p>
+                  </div>
                 </div>
               `
                 )
@@ -210,17 +237,19 @@
             </div>
 
             <!-- What They'll Dislike Section -->
-            <div class="card">
-              <h2>What they'll dislike</h2>
+            <div class="card dislikes">
+              <div class="card-header">What They'll Dislike</div>
               ${Object.entries(data.disliked)
                 .map(
                   ([key, value]) => `
-                <div class="item" onclick="toggleItem('${key}')">
-                  <p>${key}</p>
-                  <span class="toggle-button">+</span>
-                </div>
-                <div id="${key}" class="collapse-content">
-                  <p>${value}</p>
+                <div class="item" onclick="toggleItem(this)">
+                  <div class="item-header">
+                    <span>${key}</span>
+                    <span class="toggle-button">+</span>
+                  </div>
+                  <div class="collapse-content">
+                    <p>${value}</p>
+                  </div>
                 </div>
               `
                 )
@@ -236,12 +265,11 @@
         });
     });
 
-  function toggleItem(id) {
-    const content = document.getElementById(id);
-    const isCollapsed = content.style.display === "block";
-
-    // Toggle display
-    content.style.display = isCollapsed ? "none" : "block";
+  function toggleItem(element) {
+    element.classList.toggle("active");
+    const content = element.querySelector(".collapse-content");
+    content.style.display =
+      content.style.display === "block" ? "none" : "block";
   }
 </script>
 {% endblock %}
