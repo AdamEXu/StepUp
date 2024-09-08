@@ -1,0 +1,244 @@
+{% extends "layout.html" %} {% block content %}
+<style>
+  .banner {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+    text-align: center;
+  }
+
+  .banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("{{college.image_url}}");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: -1;
+    border-radius: 20px;
+  }
+
+  .banner-content {
+    position: relative;
+    z-index: 1;
+    margin: 20px;
+  }
+
+  .widget-container {
+    width: 100%;
+    height: 80vh;
+    background-color: #f0f0f0;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    display: none; /* Hide widget initially */
+  }
+
+  .submit-button {
+    margin-left: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+
+  .container {
+    display: flex;
+    gap: 20px;
+  }
+
+  .card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 250px;
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 18px;
+    color: green;
+  }
+
+  .card:nth-child(2) h2 {
+    color: red;
+  }
+
+  .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+
+  .item:last-child {
+    border-bottom: none;
+  }
+
+  .toggle-button {
+    font-size: 20px;
+    color: gray;
+  }
+
+  .collapse-content {
+    display: none;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+  }
+</style>
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/franken-wc@0.1.0/dist/css/zinc.min.css"
+/>
+
+<div class="guide">
+  <div class="banner">
+    <div class="banner-content">
+      <h1>{{college.name}}</h1>
+      <img
+        src="{{college.logo_image_url}}"
+        alt="{{college.name}}"
+        style="
+          width: 200px;
+          height: auto;
+          margin: 0 auto;
+          margin-left: calc(50vw - 150px);
+        "
+      />
+      <p>{{college.description}}</p>
+      <p>Location: {{college.location}}</p>
+    </div>
+  </div>
+
+  <form id="chance-form">
+    <h2 style="font-size: 30px; font-weight: 500">
+      Your chance of getting accepted:
+      <a style="color: #50b500"
+        >Choose an admissions officer strictness below.</a
+      >
+    </h2>
+    <h2 style="font-size: 30px; font-weight: 500">
+      Standard chance of getting accepted:
+      <a style="color: #fdc700">10%</a>
+    </h2>
+    <h3 style="font-size: 30px">
+      Choose an admissions officer strictness below.
+    </h3>
+    <input
+      class="uk-range"
+      style="width: 40% !important"
+      type="range"
+      id="strictness"
+      name="strictness"
+      min="0"
+      max="1"
+      step="0.1"
+      value="0.5"
+    />
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
+
+  <div class="widget-container" id="widget">
+    <h1 id="loading">
+      Choose an admissions officer strictness above and click submit to
+      continue.
+    </h1>
+  </div>
+</div>
+
+<script>
+  document
+    .getElementById("chance-form")
+    .addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form from submitting traditionally
+
+      // Reset the widget content and show loading message
+      document.getElementById("widget").style.display = "block"; // Show the widget
+      document.getElementById("loading").innerHTML = "Loading..."; // Show loading message
+
+      // Get strictness value from the slider
+      const strictness = document.getElementById("strictness").value;
+
+      // Send request to API
+      fetch("/api/get-chance", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          token: "108341fc52a4307a42dfc5050dc5ce4fbb7a1456b0b1344d",
+          college_id: "{{college.id}}",
+          strictness: strictness,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the response data and update the widget
+          document.getElementById("widget").innerHTML = `
+          <div class="container">
+            <!-- What They'll Like Section -->
+            <div class="card">
+              <h2>What they'll like</h2>
+              ${Object.entries(data.liked)
+                .map(
+                  ([key, value]) => `
+                <div class="item" onclick="toggleItem('${key}')">
+                  <p>${key}</p>
+                  <span class="toggle-button">+</span>
+                </div>
+                <div id="${key}" class="collapse-content">
+                  <p>${value}</p>
+                </div>
+              `
+                )
+                .join("")}
+            </div>
+
+            <!-- What They'll Dislike Section -->
+            <div class="card">
+              <h2>What they'll dislike</h2>
+              ${Object.entries(data.disliked)
+                .map(
+                  ([key, value]) => `
+                <div class="item" onclick="toggleItem('${key}')">
+                  <p>${key}</p>
+                  <span class="toggle-button">+</span>
+                </div>
+                <div id="${key}" class="collapse-content">
+                  <p>${value}</p>
+                </div>
+              `
+                )
+                .join("")}
+            </div>
+          </div>
+          `;
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    });
+
+  function toggleItem(id) {
+    const content = document.getElementById(id);
+    const isCollapsed = content.style.display === "block";
+
+    // Toggle display
+    content.style.display = isCollapsed ? "none" : "block";
+  }
+</script>
+{% endblock %}

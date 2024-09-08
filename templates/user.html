@@ -1,0 +1,21 @@
+{% extends "layout.html" %} {% block content %}
+<div class="homepage">
+  <div class="index">
+    <div class="text-top">
+      <h1>
+        Hello there,
+        <span class="homepage-index-bold" id="name">{{name}}</span>!
+      </h1>
+      <p>
+        Go to colleges and choose your dream college. You'll then see how likely
+        you are to get in!
+      </p>
+    </div>
+    <div class="opt-btn">
+      <a href="/colleges" class="button">Colleges</a><br /><br />
+      <a href="/user-onboarding" class="link-light">Edit my user settings...</a>
+    </div>
+  </div>
+</div>
+<script src="/static/scripts/user.js"></script>
+{% endblock %}

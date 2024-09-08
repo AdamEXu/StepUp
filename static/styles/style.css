@@ -1,0 +1,279 @@
+* {
+  font-family: "Jost", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  color: #000;
+}
+
+a:active {
+  color: #666;
+}
+
+a.link {
+  text-decoration: underline;
+  color: #0b81ff;
+}
+
+a.link:hover {
+  color: #0050a6;
+}
+
+a.link:active {
+  color: #0bc6ff;
+}
+
+p {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.navbar {
+  display: flex;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+}
+
+.navbar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-left a {
+  text-decoration: none;
+  color: #f97316;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-right: 2rem;
+  transition: transform 0.2s;
+}
+
+.navbar-left a:hover {
+  color: #e87b35;
+  transform: scale(1.05);
+  /* font-weight: 700; */
+}
+
+.navbar-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+}
+
+.navbar-center a {
+  /* Search Button */
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 400;
+  transition: transform 0.2s;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  background-color: #000;
+  border-radius: 0.35rem;
+  color: #fff;
+  fill: #fff;
+  cursor: pointer;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.navbar-center a:hover {
+  fill: #fff;
+  color: #fff;
+}
+
+.navbar-center input {
+  /* Search Input */
+  padding: 0.4rem;
+  font-size: 1rem;
+  border: solid;
+  border-width: 0.1rem;
+  border-color: #aaa;
+  border-radius: 0.35rem;
+  margin-right: calc(10vw + 4rem);
+}
+
+.navbar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: auto;
+}
+
+.navbar-right a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-left: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.navbar-right a:hover {
+  color: #000;
+  transform: scale(1.05);
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 5rem);
+}
+
+@keyframes hover {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.index {
+  width: 80vw;
+  margin-left: 20vw;
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: -6rem;
+  display: block;
+}
+
+.index h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.index p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.homepage-index-bold {
+  font-weight: 700;
+  color: #e87b35;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2rem;
+}
+
+.opt-btn {
+  margin-top: 4rem;
+  display: inline-block;
+}
+
+.button {
+  background-color: #f97316;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  border-radius: 0.35rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  color: #fff;
+  background-color: rgb(255, 161, 94);
+}
+
+.link-light {
+  color: #f3bd7f;
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.link-light:hover {
+  color: #f3bd7f;
+}
+
+@keyframes fade_out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fade_out 0.5s;
+}
+
+.fade-in {
+  animation: fade_in 0.5s;
+}
+
+.hidden {
+  display: none;
+}
+
+.guide {
+  text-align: center;
+  margin-top: 2rem;
+  margin: 3rem;
+}
+
+input {
+  padding: 0.4rem;
+  font-size: 1rem;
+  border: solid;
+  border-width: 0.1rem;
+  border-color: #aaa;
+  border-radius: 0.35rem;
+  width: 40vw;
+}
+
+textarea {
+  padding: 0.4rem;
+  font-size: 1rem;
+  border: solid;
+  border-width: 0.1rem;
+  border-color: #aaa;
+  border-radius: 0.35rem;
+  width: 60vw;
+}
+
+.gone {
+  display: none;
+}

@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <title>StepUp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/franken-wc@0.1.0/dist/css/zinc.min.css"
+    />
+    <link rel="stylesheet" href="/static/styles/style.css" />
+    <link rel="stylesheet" href="/static/styles/mobile.css" />
+    <style>
+      /* Center the navbar items */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+      }
+
+      .navbar-center {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .uk-search {
+        width: 300px;
+      }
+
+      .search-icon {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+      }
+    </style>
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-latest.min.js"
+    ></script>
+  </head>
+  <body>
+    <script src="/static/scripts/index.js"></script>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="/">StepUp</a>
+      </div>
+      <div class="navbar-center">
+        <form
+          class="uk-search"
+          aria-label="Search"
+          action="search"
+          method="get"
+        >
+          <input
+            class="uk-search-input"
+            type="search"
+            placeholder="Search colleges"
+            name="query"
+            aria-label=""
+          />
+        </form>
+        <a
+          onclick="document.querySelector('.uk-search').submit()"
+          class="search-icon"
+        >
+          <span class="search-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-search"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </span>
+        </a>
+      </div>
+      <div class="navbar-right" id="no-login">
+        <a href="/method">Our Method</a>
+        <a href="/about">About Us</a>
+        <a href="/join">Join Us</a>
+      </div>
+      <div class="navbar-right gone" id="login">
+        <a href="/colleges">Colleges</a>
+        <a href="/user-onboarding">Update User</a>
+        <a href="/logout">Logout</a>
+      </div>
+      <script>
+        var token = getCookie("token");
+        if (token != "not found") {
+          document.getElementById("no-login").classList.add("gone");
+          document.getElementById("login").classList.remove("gone");
+        }
+      </script>
+    </div>
+    <div class="content fade-in">{% block content %} {% endblock %}</div>
+  </body>
+</html>

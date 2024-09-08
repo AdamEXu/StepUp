@@ -1,0 +1,87 @@
+{% extends "layout.html" %} {% block content %}
+
+<style>
+  .homepage {
+    display: block;
+  }
+
+  .college-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 columns layout for wider cards */
+    gap: 30px; /* Increased gap for better spacing */
+    padding: 20px;
+  }
+
+  .card {
+    background-color: #e8e0da;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px; /* Adjusted card height */
+  }
+
+  .card-header h2 {
+    padding: 15px;
+    background-color: #e87b35;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.2em; /* Increased font size for better readability */
+  }
+
+  .card-body {
+    overflow-y: auto;
+    padding: 15px;
+    flex-grow: 1; /* Allow the body to grow */
+  }
+
+  .scrollable-content img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px;
+    background-color: #e87b35;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+</style>
+
+<div class="homepage">
+  <div class="college-grid">
+    {% for college in colleges %}
+    <div class="card">
+      <a href="/college/{{ college.id }}">
+        <div class="card-header">
+          <h2>{{ college.name }}</h2>
+        </div>
+        <div class="card-body">
+          <div class="scrollable-content">
+            <img
+              src="{{ college.logo_image_url }}"
+              alt="{{ college.name }}"
+              style="height: 100px !important; width: auto"
+            />
+
+            <p>{{ college.description }}</p>
+            <p>Location: {{ college.location }}</p>
+          </div>
+          <a href="/college/{{ college.id }}" class="button">Details</a>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

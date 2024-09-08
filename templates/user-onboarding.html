@@ -1,0 +1,191 @@
+{% extends "layout.html" %} {% block content %}
+<div class="homepage">
+  <div class="index">
+    <div class="text-top">
+      <h1>Let's set you up.</h1>
+      <p id="need_info">
+        We'll just need some information about you, then you're all set!
+      </p>
+      <script>
+        var need_info = document.getElementById("need_info");
+        var name = "{{name}}";
+        if (name) {
+          need_info.innerHTML =
+            "Hi, " + name + "! Let's update your information.";
+        }
+      </script>
+    </div>
+    <script>
+      function submitOnboarding() {
+        // make sure all fields are filled
+        if (
+          !document.getElementById("name").value ||
+          !document.getElementById("email").value ||
+          !document.getElementById("essay").value
+        ) {
+          alert("Please fill out all fields.");
+          return;
+        }
+        var transcripttmp = `{{ transcript }}`;
+        if (
+          !transcripttmp &&
+          document.getElementById("transcript").files.length == 0
+        ) {
+          alert("Please upload a transcript.");
+          return;
+        }
+
+        // Fetch the user info first
+        fetch("/api/get_user", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            token: getCookie("token"),
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // get form data
+            const formData = new FormData(
+              document.getElementById("onboarding-form")
+            );
+            const formObject = {};
+            formData.forEach((value, key) => {
+              formObject[key] = value;
+            });
+
+            // update user data with form data
+            var updatedUser = data;
+            updatedUser.name = formObject.name;
+            updatedUser.email = formObject.email;
+            updatedUser.essay = formObject.essay;
+
+            // Check for transcript upload and handle the file asynchronously
+            if (document.getElementById("transcript").files.length != 0) {
+              var file = document.getElementById("transcript").files[0];
+              return readTranscriptFile(file).then((base64) => {
+                updatedUser.transcript = base64;
+                return updatedUser;
+              });
+            } else {
+              return updatedUser;
+            }
+          })
+          .then((updatedUser) => {
+            // send updated user data to /api/update_user
+            fetch("/api/update_user", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                token: getCookie("token"),
+                user: updatedUser,
+              }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                // redirect to /user
+                window.location.href = "/user";
+              });
+          });
+      }
+
+      function readTranscriptFile(file) {
+        return new Promise((resolve, reject) => {
+          var reader = new FileReader();
+          reader.onload = function () {
+            var base64 = reader.result.split(",")[1];
+            resolve(base64);
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+      }
+    </script>
+    <div class="opt-btn">
+      <form id="onboarding-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" value="{{name}}" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value="{{email}}"
+            required
+          />
+        </div>
+        <br /><br />
+        <div class="form-group">
+          <label for="transcript">Upload Transcript</label>
+          <input
+            type="file"
+            id="transcript"
+            name="transcript"
+            accept=".pdf"
+            required
+          />
+        </div>
+        <a class="link-light" onclick="openMyTranscript()" id="transcript-link"
+          >You already uploaded a transcript. Click here to view it!</a
+        >
+        <br />
+        <div class="form-group">
+          <label for="essay">Essay</label><br />
+          <textarea id="essay" name="essay" required>{{ essay }}</textarea>
+        </div>
+      </form>
+      <a onclick="submitOnboarding()" class="button">Submit</a>
+    </div>
+  </div>
+</div>
+<script>
+  if ("{{ transcript }}" != "") {
+    document.getElementById("transcript-link").style.display = "block";
+  }
+
+  function openTranscript(base64String, title = "Transcript") {
+    // Open a new tab/window
+    var win = window.open("", "_blank");
+
+    if (win) {
+      // If the new tab was opened successfully, write the content
+      setTimeout(function () {
+        var objBuilder = "";
+        objBuilder +=
+          '<object width="100%" height="100%" data="data:application/pdf;base64,';
+        objBuilder += base64String;
+        objBuilder += '" type="application/pdf" class="internal">';
+        objBuilder += '<embed src="data:application/pdf;base64,';
+        objBuilder += base64String;
+        objBuilder += '" type="application/pdf" />';
+        objBuilder += "</object>";
+
+        // Write the HTML content to the new tab/window
+        win.document.write(
+          "<html><head><title>" +
+            title +
+            '</title></head><body style="margin: 0;">'
+        );
+        win.document.write(objBuilder);
+        win.document.write("</body></html>");
+        win.document.close(); // Ensure the document is fully loaded
+      }, 100); // Add a small delay to allow the window to open
+    } else {
+      alert("Please allow pop-ups for this website");
+    }
+  }
+
+  function openMyTranscript() {
+    var transcript = `{{ transcript }}`;
+    openTranscript(transcript, "My Transcript");
+  }
+</script>
+<script src="/static/scripts/user.js"></script>
+{% endblock %}

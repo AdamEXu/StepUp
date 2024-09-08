@@ -1,0 +1,5 @@
+@media screen and (max-width: 884px) {
+  .navbar-center input {
+    display: none;
+  }
+}
