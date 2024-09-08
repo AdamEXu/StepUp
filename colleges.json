@@ -21,7 +21,9 @@
     "description": "The Massachusetts Institute of Technology is a private research university in Cambridge, Massachusetts. The institute is a land-grant, sea-grant, and space-grant university, with an urban campus that extends more than a mile alongside the Charles River.",
     "logo_image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/MIT_logo.svg/1024px-MIT_logo.svg.png",
     "image_url": "https://news.mit.edu/sites/default/files/images/202309/MIT-USNews-Colleges-01-press.jpg",
-    "key_application": "Highly selective: GPA, SAT/ACT, Subject Tests (optional), Extracurriculars, Essays, Recommendations, STEM focus; Optional: Interview, Portfolio (for specific programs)"
+    "key_application": "Highly selective: GPA, SAT/ACT, Subject Tests (optional), Extracurriculars, Essays, Recommendations, STEM focus; Optional: Interview, Portfolio (for specific programs)",
+    "acceptance_rate": 4.3,
+    "average_gpa": 4.19
   },
   "caltech": {
     "id": "caltech",
@@ -32,7 +34,9 @@
     "description": "The California Institute of Technology is a private research university in Pasadena, California. Caltech has six academic divisions with strong emphases on science and engineering.",
     "logo_image_url": "https://seeklogo.com/images/C/california-institute-of-technology-logo-68E1D03AEC-seeklogo.com.png",
     "image_url": "https://transitinglosangeles.com/wp-content/uploads/2021/01/20210126_120500.jpg?w=1200",
-    "key_application": "Highly selective: GPA, SAT/ACT (optional), STEM-focused Extracurriculars, Essays, Recommendations; Optional: Interviews, STEM Subject Tests"
+    "key_application": "Highly selective: GPA, SAT/ACT (optional), STEM-focused Extracurriculars, Essays, Recommendations; Optional: Interviews, STEM Subject Tests",
+    "acceptance_rate": 4.3,
+    "average_gpa": 4.22
   },
   "harvard": {
     "id": "harvard",
@@ -43,7 +47,9 @@
     "description": "Harvard University is a private Ivy League research university in Cambridge, Massachusetts. Established in 1636 and named for its first benefactor, clergyman John Harvard, Harvard is the United States' oldest institution of higher learning.",
     "logo_image_url": "https://www.clipartmax.com/png/middle/98-987100_harvard-university-harvard-university-logo-png.png",
     "image_url": "https://scholarly.co/wp-content/uploads/2022/10/t.jpg",
-    "key_application": "Highly selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Leadership Qualities; Optional: Interviews, Legacy, Demonstrated Interest"
+    "key_application": "Highly selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Leadership Qualities; Optional: Interviews, Legacy, Demonstrated Interest",
+    "acceptance_rate": 4.2,
+    "average_gpa": 4.18
   },
   "yale": {
     "id": "yale",
@@ -54,7 +60,9 @@
     "description": "Yale University is a private Ivy League research university in New Haven, Connecticut. Founded in 1701 as the Collegiate School, it is the third-oldest institution of higher education in the United States and one of the nine Colonial Colleges chartered before the American Revolution.",
     "logo_image_url": "https://banner2.cleanpng.com/20180603/yio/kisspng-yale-university-yale-bulldogs-football-yale-bulldo-5b14a09edcf4d2.2770702515280784949051.jpg",
     "image_url": "https://www.yale.edu/sites/default/files/styles/cover_image_500x500/public/schwarzman-commons.jpg?itok=lhjavJeC",
-    "key_application": "Highly selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Leadership; Optional: Interview, Demonstrated Interest"
+    "key_application": "Highly selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Leadership; Optional: Interview, Demonstrated Interest",
+    "acceptance_rate": 4.6,
+    "average_gpa": 4.15
   },
   "princeton": {
     "id": "princeton",
@@ -65,7 +73,9 @@
     "description": "Princeton University is a private Ivy League research university in Princeton, New Jersey. Founded in 1746 in Elizabeth as the College of New Jersey, Princeton is the fourth-oldest institution of higher education in the United States and one of the nine Colonial Colleges chartered before the American Revolution.",
     "logo_image_url": "https://w7.pngwing.com/pngs/464/244/png-transparent-princeton-university-logo-ivy-league-universities.png",
     "image_url": "https://admissionsight.com/wp-content/uploads/2022/11/shutterstock_1079230778.jpg",
-    "key_application": "Highly selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Leadership; Optional: Interview, Portfolio"
+    "key_application": "Highly selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Leadership; Optional: Interview, Portfolio",
+    "acceptance_rate": 6.0,
+    "average_gpa": 4.12
   },
   "columbia": {
     "id": "columbia",
@@ -76,7 +86,9 @@
     "description": "Columbia University is a private Ivy League research university in New York City. Established in 1754 as King's College on the grounds of Trinity Church in Manhattan, Columbia is the oldest institution of higher education in New York and the fifth-oldest institution of higher learning in the United States.",
     "logo_image_url": "https://banner2.cleanpng.com/20180518/gpe/kisspng-columbia-university-the-department-of-art-history-5afeacf3483fc1.719425871526639859296.jpg",
     "image_url": "https://i.ytimg.com/vi/7cwUcdpUayQ/maxresdefault.jpg",
-    "key_application": "Highly selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Leadership; Optional: Interview, Demonstrated Interest"
+    "key_application": "Highly selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Leadership; Optional: Interview, Demonstrated Interest",
+    "acceptance_rate": 6.1,
+    "average_gpa": 4.12
   },
   "upenn": {
     "id": "upenn",
@@ -87,7 +99,9 @@
     "description": "The University of Pennsylvania is a private Ivy League research university in Philadelphia, Pennsylvania. The university claims a founding date of 1740 and is one of the nine colonial colleges chartered prior to the U.S. Declaration of Independence.",
     "logo_image_url": "https://banner2.cleanpng.com/20181125/iqa/kisspng-penn-quakers-football-logo-penn-athletics-ticket-o-washington-womenampaposs-basketball-tournamen-5bfad1cce25694.4509952415431643649271.jpg",
     "image_url": "https://media.cntraveler.com/photos/5c1137222a1ed14acdea31a2/16:9/w_2560,c_limit/GettyImages-594949892.jpg",
-    "key_application": "Highly selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Leadership Qualities; Optional: Interview, Legacy, Demonstrated Interest"
+    "key_application": "Highly selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Leadership Qualities; Optional: Interview, Legacy, Demonstrated Interest",
+    "acceptance_rate": 7.4,
+    "average_gpa": 4.38
   },
   "berkeley": {
     "id": "berkeley",
@@ -98,7 +112,9 @@
     "description": "UC Berkeley is a very prestigious university and also one of the top UC schools. This school has a variety of subjects but focuses more on STEM and economics.",
     "logo_image_url": "https://clipart-library.com/newhp/kissclipart-university-of-california-berkeley-clipart-school-edbcdfe52d136ff2.png",
     "image_url": "https://www.sasaki.com/wp-content/uploads/2022/03/DD_SASAKI_BERKELEY_V2-Evans_2021_07_30-Update-1800x1013.jpg",
-    "key_application": "Selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations; Not Considered: Interviews, Legacy, Demonstrated Interest"
+    "key_application": "Selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations; Not Considered: Interviews, Legacy, Demonstrated Interest",
+    "acceptance_rate": 17.1,
+    "average_gpa": 4.3
   },
   "cornell": {
     "id": "cornell",
@@ -109,7 +125,9 @@
     "description": "Cornell University is a very prestigious university that is located in New York that has a large number of programs for undergraduate and graduate students. It is a very good school for engineering, biology, agriculture, architecture, and hotel administration.",
     "logo_image_url": "https://www.clipartmax.com/png/middle/97-975548_cornell-university-logo-universidad-de-cornell-logo.png",
     "image_url": "https://images.squarespace-cdn.com/content/v1/587d84da414fb5c9a57c9b61/1680634195968-M8EECEFHZ4FHFPS6W02O/interior-view-uris-library-cornell-university-new-york-jul-224041153.jpg",
-    "key_application": "Selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Demonstrated Interest; Optional: Interview"
+    "key_application": "Selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Demonstrated Interest; Optional: Interview",
+    "acceptance_rate": 10.9,
+    "average_gpa": 4.3
   },
   "johnhopkins": {
     "id": "johnhopkins",
@@ -120,7 +138,9 @@
     "description": "Johns Hopkins University is a private research university and was also the first American university based on the European research institution model.",
     "logo_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwL8GAMGRiz5Q8cAPPhGcy4xU7fNjiVyQy4A&s",
     "image_url": "https://images.squarespace-cdn.com/content/v1/546119bae4b085cc73a9bff6/1470950327059-TJZDKFB1A1HDYPNYNN0K/image-asset.jpeg",
-    "key_application": "Selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Research Experience; Optional: Interview"
+    "key_application": "Selective: GPA, SAT/ACT (optional), Extracurriculars, Essays, Recommendations, Research Experience; Optional: Interview",
+    "acceptance_rate": 9.9,
+    "average_gpa": 4.3
   },
   "oxford": {
     "id": "oxford",
@@ -131,6 +151,8 @@
     "description": "Oxford University is a prestigious British university in a city called Oxford. This university focuses mainly on literature and is sometimes said to be the oldest English-speaking university because it was established in 1096.",
     "logo_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJDtdIpCW81yyjukm5uJLP8F7IoMc29jtnLQ&s",
     "image_url": "https://cdn.britannica.com/03/117103-050-F4C2FC83/view-University-of-Oxford-England-Oxfordshire.jpg",
-    "key_application": "Highly selective: GCSEs, A-levels or IB, Personal Statement, Written Tests (depending on the subject), Interviews; Optional: Extracurriculars (not prioritized)"
+    "key_application": "Highly selective: GCSEs, A-levels or IB, Personal Statement, Written Tests (depending on the subject), Interviews; Optional: Extracurriculars (not prioritized)",
+    "acceptance_rate": 17.5,
+    "average_gpa": 4.3
   }
 }
